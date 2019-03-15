@@ -1,0 +1,29 @@
+<% title "Show", true, true %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <%= link_to clients_path, class: 'btn btn-default' do %>
+        <span class="glyphicon glyphicon-list-alt"></span>
+        All Clients
+      <% end %>
+      <%= link_to edit_client_path(@client), class: 'btn btn-primary' do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+        Edit
+      <% end %>
+      <h1>Show client</h1>
+    </div>
+
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @client.name %></dd>
+
+      <dt>Active:</dt>
+      <dd><%= @client.active %></dd>
+
+      <dt>Project:</dt>
+      <dd><%= @client.project.name %></dd>
+
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" class="rykn0wxx no-js">
+  <head>
+    <%= render  "shared/head" %>
+  </head>
+
+  <body class="mudhead">
+    <%= render  "shared/navbar" if show_topbar? %>
+    <%= render  "shared/flash" %>
+    <%= render "shared/main" if show_topbar? %>
+    <%= yield if !show_topbar? %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', 'data-turbolinks-suppress-warning': 'true' %>
+  </body>
+</html>

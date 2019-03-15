@@ -1,0 +1,24 @@
+<% title "Upload", true, true %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <p>A CSV file can be used to import records. The first row should be the column name. The following columns are allowed.</p>
+    <dl class="row">
+      <%- @client.columns.each do |column| -%>
+        <%- unless column.name.in? ["id", "created_at", "updated_at"] -%>
+          <dt class="col s3"><%= column.name %></dt>
+          <dd class="col s9"><%= column.type.to_s.titleize %> type</dd>
+        <%- end -%>
+      <%- end -%>
+    </dl>
+    <p>If an <strong>id</strong> is supplied it will update the matching record instead of creating a new one.</p>
+    <%= form_tag url_for(:only_path => true, :action => "do_import"), :multipart => true, :novalidate => true, :class => "md-form" do |f| %>
+      <%= file_field_tag :file %>
+      <div class="actions">
+        <%= button_tag(:type => "submit", :class => "btn") do %>
+          Submit
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

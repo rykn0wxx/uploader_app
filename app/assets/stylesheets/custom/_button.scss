@@ -1,0 +1,54 @@
+.rykn0wxx {
+  .mudhead {
+    .btn {
+      position: relative;
+      outline: none;
+      white-space: nowrap;
+      font-weight: 400;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      color: #edeff0;
+      font-size: 13px;
+      line-height: 1.5125rem;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      &:focus, &:hover {
+        text-decoration: none;
+      }
+      &-default {
+        color: #22313a;
+        background-color: #cbd2d5;
+        border-color: #cbd2d5;
+      }
+      &--default {
+        // color: #22313a;
+        &:hover {
+          color: #22313a;
+          background-color: #cbd2d5;
+          border: 0 solid rgba(0, 0, 0, 0);
+        }
+        &:active {
+          box-shadow: none;
+        }
+      }
+      &-link {
+        color: #b4bfc3;
+      }
+      &--light {
+        background-color: #394650;
+        border-color: #394650;
+        color: #b4bfc3;
+        &:hover {
+          background-color: darken($light, 7.5%);
+          border-color: darken($light, 7.5%);
+          color: lighten(#b4bfc3, 7.5%);
+        }
+      }
+      &:not(:disabled):not(.disabled):active:focus, :not(:disabled):not(.disabled).active:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<% title "Index", true, true %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Clients</h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%= link_to new_client_path, :class => 'btn btn--light' do -%>
+      Add New Client
+    <% end -%>
+    <%= link_to import_clients_path, :class => 'btn btn--light' do -%>
+      Bulk Upload Clients
+    <% end -%>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Active</th>
+        <th>Project</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <%= content_tag :tr, :id => dom_id(client), :class => dom_class(client) + " table-row", :tabindex => 0, :role => "link", :data => { :'row-url' => client_path(client) } do %>
+          <td><%= client.name %></td>
+          <td><%= client.active %></td>
+          <td><%= client.project.name %></td>
+          <td class="table-row__actions">
+            <div class="btn-group">
+              <%= link_to client, :class => "btn table-row__link text-info py-0" do %>
+                <%= mi.visibility %>
+              <% end %>
+              <%= link_to client, :class => "btn table-row__link text-danger py-0", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+                <%= mi.delete %>
+              <% end %>
+            </div>
+          </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Ubuntu", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$enable-shadows:            true;
+
+// $primary:       #3f51b5;
+$primary:       #1e88e5;
+$secondary:     #607d8b;
+// $success:       #4CAF50;
+$success:       #4caf50;
+// $info:          #2196f3;
+$info:          #00bcd4;
+// $warning:       #FFD740;
+$warning:       #f9a825;
+// $danger:        #FF5252;
+$danger:        #ef5350;
+// $light:         #ECEFF1;
+$light:         #394650;
+// $dark:          #424242;
+// $dark:          #cbd2d5;
+$dark:           #1A252B;
+
+$yiq-text-dark:             rgba(0,0,0,0.87);
+$yiq-text-light:            rgba(255,255,255,0.87);
+
+$theme-dark:                true;
+
+$body-bg:                       #F5F5F6;
+$app-body-bg-dark:              #22313a;
+$body-color:                    rgba(0,0,0,0.87);
+$app-body-color-dark:           #8a9ba1;
+
+@if $theme-dark {
+  $body-bg:       $app-body-bg-dark;
+  $body-color:    $app-body-color-dark;
+}
+
+$card-bg:                 #2b3942;
+
+$btn-border-radius:         0.125rem;
+$btn-border-radius-lg:      0.125rem;
+$btn-border-radius-sm:      0.125rem;
+$btn-transition:            box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+
+$link-hover-decoration:			none;
+
+$table-cell-padding:				.6rem;
+$table-dark-bg:             $dark;
+$table-dark-color:          rgba(250,250,250,0.5);
+$border-color:							rgba(0,0,0,0.12);
+
+$dropdown-bg:               rgba(255, 255, 255, 0.87);
+
+@import "material_icons";
+@import "bootstrap";
+
+@import "custom/button";
+@import "custom/card";
+@import "custom/input";
+@import "custom/table";
+@import "custom/auth";
+@import "custom/layout";

@@ -1,0 +1,142 @@
+$auth-width:        450px;
+.rykn0wxx {
+  .mudhead.auth {
+    .animated {
+      animation-duration: 0.6s;
+      animation-fill-mode: both;
+    }
+    .fadeIn {
+      animation-name: fadeIn
+    }
+    .login-cover {
+      &--cover, &--image, &--bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background .2s linear;
+      }
+      &--bg {
+        background: rgba(0,0,0,.5);
+      }
+    }
+    .fade.show {
+      opacity: 1;
+    }
+    .login {
+      right: 0;
+      color: #ccc;
+      width: $auth-width;
+      margin: 100px 0 0 -200px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-radius: 4px;
+      &-header {
+        width: $auth-width;
+        padding: 0 20px;
+        margin: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: relative;
+        font-weight: 300;
+      }
+      &-brand {
+        padding: 0;
+        font-size: 28px;
+        small {
+          font-size: 13px;
+          display: block;
+          color: rgba(255,255,255,.5);
+        }
+      }
+      &-logo {
+        float: left;
+        margin-right: 10px;
+        position: relative;
+        width: 28px;
+        height: 28px;
+        background: 0 0;
+        border: 2px solid rgba(255,255,255,.25);
+        border-radius: 40px;
+        margin-top: 5px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 4px;
+          left: 4px;
+          width: 16px;
+          height: 16px;
+          border-radius: 40px;
+          border: 2px solid rgba(255,255,255,.5);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          width: 4px;
+          height: 4px;
+          border-radius: 40px;
+          background: rgba(255,255,255,.75);
+        }
+      }
+      &-icon {
+        opacity: 0.4;
+        right: 20px;
+        top: 2px;
+        position: absolute;
+        > i {
+          font-size: 56px;
+        }
+      }
+      &-content {
+        padding: 30px 20px 20px;
+        width: $auth-width;
+        margin: 0 auto;
+      }
+      &-link {
+        color: $secondary;
+        b {
+          font-weight: 500;
+        }
+      }
+      .form-group:not(.form-group--float) {
+        .form-control {
+          background-color: rgba(255,255,255, 0.2);
+          border: 1px solid transparent;
+          color: rgba(255,255,255,.75);
+          font-size: 14px;
+          transition: all 0.3s ease-in-out;
+          outline: none;
+          &:focus {
+            border-color: transparent;
+            // box-shadow: 0 0 0 0.125rem rgba(255,255,255,.3);
+            // box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            box-shadow: 0 0 5px rgba($primary, 1);
+            border: 1px solid rgba($primary, 1);
+          }
+        }
+      }
+      &-footer {
+        margin-top: 10px;
+        font-size: 13px;
+        font-weight: 300;
+        > a {
+          font-weight: 400;
+          font-size: 14px;
+          margin-left: 5px;
+        }
+      }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  }
+}

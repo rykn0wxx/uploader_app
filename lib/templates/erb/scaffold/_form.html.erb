@@ -1,0 +1,46 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+
+  <%% if <%= singular_table_name %>.errors.any? %>
+    <div id="error_explanation">
+      <h2><%%= pluralize(<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
+      <ul>
+      <%% <%= singular_table_name %>.errors.full_messages.each do |message| %>
+        <li><%%= message %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+  <div class="form-inputs"> 
+<% attributes.each do |attribute| -%>
+    <div class="form-input-group mb-4">
+      <div class="form-group form-group--float">
+<% if attribute.password_digest? -%>
+        <%%= f.input_field :<%= attribute.name %>,
+          :as => :password,
+          :required => true,
+          :class => "form-control",
+          :data => { :'form-input' => "float" } %>
+<% else -%>
+        <%%= f.input_field :<%= attribute.name %>,
+          :class => "form-control",
+          :required => true,
+          :data => { :'form-input' => "float" } %>
+<% end -%>
+        <%%= f.label :<%= attribute.name %>, :class => "form-label" %>
+        <i class="form-group__bar"></i>
+      </div>
+    </div>
+<% end -%>
+  </div>
+
+  <div class="form-actions">
+    <%%= f.button :submit, :class => "btn--light mr-3" %>
+    <%% if <%= singular_table_name %>.persisted? -%>
+      <%%= link_to "Cancel", <%= singular_table_name %>, :class => "btn btn--default" %>
+    <%% else %>
+      <%%= link_to "Cancel", <%= index_helper %>_path, :class => "btn btn--default" %>
+    <%% end -%>
+  </div>
+
+<%% end %>

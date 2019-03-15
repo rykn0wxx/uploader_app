@@ -1,0 +1,44 @@
+<%% title "Index", true, true %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= plural_table_name.capitalize %></h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <%%= link_to new_<%= singular_table_name %>_path, :class => 'btn btn--light' do -%>
+      Add New <%= human_name %>
+    <%% end -%>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+        <th><%= attribute.human_name %></th>
+<% end -%>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
+        <%%= content_tag :tr, :id => dom_id(<%= singular_table_name %>), :class => dom_class(<%= singular_table_name %>) + " table-row", :tabindex => 0, :role => "link", :data => { :'row-url' => <%= singular_table_name %>_path(<%= singular_table_name %>) } do %>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+          <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<% end -%>
+          <td class="table-row__actions">
+            <div class="btn-group">
+              <%%= link_to <%= singular_table_name %>, :class => "btn table-row__link text-info py-0" do %>
+                <%%= mi.visibility %>
+              <%% end %>
+              <%%= link_to <%= model_resource_name %>, :class => "btn table-row__link text-danger py-0", :method => :delete, :data => { :confirm => 'Are you sure?' } do %>
+                <%%= mi.delete %>
+              <%% end %>
+            </div>
+          </td>
+        <%% end %>
+      <%% end %>
+    </tbody>
+  </table>
+</div>
